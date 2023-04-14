@@ -5,6 +5,16 @@ import { rpsls } from "../lib/rpsls.js"
 
 const argv = minimist(process.argv.slice(2))
 
+if(argv.h||argv.help) {
+    helpMessage();
+    exit.process(0);
+}
+
+if(argv.r||argv.rules) {
+    rulesMessage();
+    exit.process(0);
+}
+
 
 // usage message
 function helpMessage() {
@@ -38,6 +48,8 @@ function rulesMessage() {
     - Rock CRUSHES Scissors')
     exit.process(0);
 }
+
+
     
 
 
