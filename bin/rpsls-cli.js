@@ -15,7 +15,6 @@ if(argv.r||argv.rules) {
     exit.process(0);
 }
 
-
 // usage message
 function helpMessage() {
     console.log('Usage: node-rpsls [SHOT]
@@ -49,7 +48,14 @@ function rulesMessage() {
     exit.process(0);
 }
 
+let playerShot = argv._[0]
 
+try{
+    console.log(JSON.stringify(rpsls(playerShot)))
+} catch(e) {
+    helpMessage;
+    rulesMessage;
+}
     
 
 
