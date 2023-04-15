@@ -52,9 +52,9 @@ function rulesMessage() {
 let playerShot = argv._[0]
 try{
     console.log(JSON.stringify(rpsls(playerShot)))
-} catch(e) {
-    helpMessage;
-    rulesMessage;
+} catch(error) {
+    helpMessage();
+    rulesMessage();
 }
     
 
