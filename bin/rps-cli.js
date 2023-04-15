@@ -5,11 +5,13 @@ import { rps } from "../lib/rpsls.js"
 
 const argv = minimist(process.argv.slice(2))
 
+//send help message 
 if(argv.h||argv.help) {
     helpMessage();
     exit.process(0);
 }
 
+//send rules message
 if(argv.r||argv.rules) {
     rulesMessage();
     exit.process(0);
@@ -39,8 +41,8 @@ function rulesMessage() {
     exit.process(0);
 }
 
+//checking if argument works, if not send help and rules message
 let playerShot = argv._[0];
-
 try{
     console.log(JSON.stringify(rps(playerShot)))
 } catch(e) {
