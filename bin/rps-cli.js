@@ -29,7 +29,6 @@ function helpMessage() {
     console.log('                  e.g. {"player":"rock"}');
     console.log('  node-rps rock   Return JSON with results for RPS played against a simulated opponent.');
     console.log('                  e.g {"player":"rock","opponent":"scissors","result":"win"}');
-    process.exit(0);
 }
 
 function rulesMessage() {
@@ -38,7 +37,6 @@ function rulesMessage() {
     console.log('  - Scissors CUTS Paper');
     console.log('  - Paper COVERS Rock');
     console.log('  - Rock CRUSHES Scissors');
-    process.exit(0);
 }
 
 //checking if argument works, if not send help and rules message
