@@ -8,13 +8,13 @@ const argv = minimist(process.argv.slice(2))
 //send help message 
 if(argv.h||argv.help) {
     helpMessage();
-    exit.process(0);
+    process.exit(0);
 }
 
 //send rules message
 if(argv.r||argv.rules) {
     rulesMessage();
-    exit.process(0);
+    process.exit(0);
 }
 
 function helpMessage() {
@@ -29,7 +29,7 @@ function helpMessage() {
     console.log('                  e.g. {"player":"rock"}');
     console.log('  node-rps rock   Return JSON with results for RPS played against a simulated opponent.');
     console.log('                  e.g {"player":"rock","opponent":"scissors","result":"win"}');
-    exit.process(0);
+    process.exit(0);
 }
 
 function rulesMessage() {
@@ -38,14 +38,15 @@ function rulesMessage() {
     console.log('  - Scissors CUTS Paper');
     console.log('  - Paper COVERS Rock');
     console.log('  - Rock CRUSHES Scissors');
-    exit.process(0);
+    process.exit(0);
 }
 
 //checking if argument works, if not send help and rules message
 let playerShot = argv._[0];
 try{
     console.log(JSON.stringify(rps(playerShot)))
-} catch(e) {
+} catch(error) {
     helpMessage();
     rulesMessage();
+    process.exit(1);
 }

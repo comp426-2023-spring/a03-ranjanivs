@@ -7,12 +7,12 @@ const argv = minimist(process.argv.slice(2))
 
 if(argv.h||argv.help) {
     helpMessage();
-    exit.process(0);
+    process.exit(0);
 }
 
 if(argv.r||argv.rules) {
     rulesMessage();
-    exit.process(0);
+    process.exit(0);
 }
 
 // usage message
@@ -28,7 +28,7 @@ function helpMessage() {
     console.log('                    e.g. {"player":"rock"}');
     console.log('  node-rpsls rock   Return JSON with results for RPSLS played against a simulated opponent.');
     console.log('                    e.g {"player":"rock","opponent":"Spock","result":"lose"}');
-    exit.process(0);
+    process.exit(0);
 }
     
 // rules message
@@ -45,7 +45,7 @@ function rulesMessage() {
     console.log('  - Paper DISPROVES Spock');
     console.log('  - Spock VAPORIZES Rock');
     console.log('  - Rock CRUSHES Scissors');
-    exit.process(0);
+    process.exit(0);
 }
 
 //try player argument and if not valid, send help and rules message
@@ -55,6 +55,7 @@ try{
 } catch(error) {
     helpMessage();
     rulesMessage();
+    process.exit(1);
 }
     
 
